@@ -1,14 +1,4 @@
-
----
-
-### **Frontend README.md**  
-
-```markdown
-# Herca Frontend
-
-This is the React-based frontend for the Herca application. It allows users to view sales commissions and add payments for transactions.
-
----
+## Herca Forontend Test
 
 ## Features
 - Display a commission table with sales and payment details.
