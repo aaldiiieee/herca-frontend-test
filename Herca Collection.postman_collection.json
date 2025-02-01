@@ -1,0 +1,90 @@
+{
+  "info": {
+    "_postman_id": "e1a0c19a-6ff7-4949-a106-21c4457af8cf",
+    "name": "Herca Collection",
+    "description": "# 🚀 Herca API Documentation\n\nThis collection contains RESTful API endpoints to handle payment transactions and retrieve payment data.\n\n## 🔖 **How to use this collection**\n\n### **Step 1: Import the Collection**\n1. Download the `HercaCollection.postman_collection.json` file from the root of this repository.\n2. Open Postman.\n3. Click on the **Import** button (top left corner).\n4. Select the `HercaCollection.postman_collection.json` file.\n5. The collection will be added to your workspace.\n\n### **Step 2: Configure Base URL**\n- Go to the **Variables** tab and update the `base_url` variable to match your backend API URL (e.g., `http://localhost:5000/api`).\n\n### **Step 3: Send Requests**\n\n#### **Get Payments**\n- Method: `GET`\n- Endpoint: `/payments`\n- Description: Retrieve a list of all recorded payments.\n\n#### **Make Payment**\n- Method: `POST`\n- Endpoint: `/payments`\n- Description: Add a new payment for a specific transaction.\n- Body Example:\n  ```json\n  {\n    \"transactionId\": 1,\n    \"amount\": 1000\n  }\n  ```\n\n### **Step 4: View Responses**\n- After sending a request, observe the **Response** tab for details like status code (200 OK), response time, and the returned data.\n\n### **Step 5: Customize or Extend**\n- Add new API requests to the collection as your backend evolves.\n- Use the **Tests** tab to write test scripts for validating API behavior.\n\n---\n\n## 💪 Pro Tips\n\n- Use **folders** to group related endpoints for better organization.\n- Add authentication tokens or session keys to the `Authorization` tab, if required.\n- Leverage the **Pre-request Script** tab for dynamic header values or custom logic.\n\n---\n\n## 💡 Related Resources\n\n- [Postman API Documentation Guide](https://learning.postman.com/docs/getting-started/creating-the-first-collection/)\n- [Testing APIs with Postman](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)\n\n---\n\n### Example Response for GET `/payments`\n```json\n[\n  {\n    \"transactionId\": 1,\n    \"amount\": 1000,\n    \"date\": \"2025-01-31T08:00:00.000Z\"\n  }\n]\n```\n\n### Example Response for POST `/payments`\n```json\n{\n  \"message\": \"Payment recorded\",\n  \"payments\": [\n    {\n      \"transactionId\": 1,\n      \"amount\": 1000,\n      \"date\": \"2025-01-31T08:00:00.000Z\"\n    }\n  ]\n}\n\n```",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40797986"
+  },
+  "item": [
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Get Payments",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Make Payment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"transactionId\": 1,\n    \"amount\": 300000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payment/make-payment",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payment", "make-payment"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Commission",
+      "item": [
+        {
+          "name": "Get Commission By Month",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/commission/get-commission-by-month",
+              "host": ["{{base_url}}"],
+              "path": ["api", "commission", "get-commission-by-month"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "key": "base_url",
+      "value": "https://postman-rest-api-learner.glitch.me/"
+    }
+  ]
+}
